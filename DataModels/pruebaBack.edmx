@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PruebaLauraRoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_CrearCuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="numeroCuenta" Type="nvarchar" Mode="In" />
+          <Parameter Name="saldo" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sp_CrearTransaccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idCuenta" Type="int" Mode="In" />
+          <Parameter Name="valor" Type="numeric" Mode="In" />
+          <Parameter Name="idTipoTransaccion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_ObtenerClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_ObtenerCuentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="PruebaLauraRoaModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PruebaLauraRoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PruebaLauraRoaEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_CrearCuenta" ReturnType="Collection(PruebaLauraRoaModel.sp_CrearCuenta_Result)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="numeroCuenta" Mode="In" Type="String" />
+            <Parameter Name="saldo" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sp_CrearTransaccion" ReturnType="Collection(PruebaLauraRoaModel.sp_CrearTransaccion_Result)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idCuenta" Mode="In" Type="Int32" />
+            <Parameter Name="valor" Mode="In" Type="Decimal" />
+            <Parameter Name="idTipoTransaccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ObtenerClientes" ReturnType="Collection(PruebaLauraRoaModel.sp_ObtenerClientes_Result)" />
+          <FunctionImport Name="sp_ObtenerCuentas" ReturnType="Collection(PruebaLauraRoaModel.sp_ObtenerCuentas_Result)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_ObtenerClientes_Result">
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="Int32" Name="idTipoIdentificacion" Nullable="false" />
+          <Property Type="String" Name="numeroIdentificacion" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nombres" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="apellidos" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="razonSocial" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="celular" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="telefono" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="departamento" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="tipoIdentificacion" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_ObtenerCuentas_Result">
+          <Property Type="Int32" Name="idCuenta" Nullable="false" />
+          <Property Type="Decimal" Name="saldo" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="numeroCuenta" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_CrearCuenta_Result">
+          <Property Type="String" Name="nota" Nullable="true" MaxLength="561" />
+        </ComplexType>
+        <ComplexType Name="sp_CrearTransaccion_Result">
+          <Property Type="String" Name="nota" Nullable="false" MaxLength="34" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PruebaLauraRoaModelStoreContainer" CdmEntityContainer="PruebaLauraRoaEntities" >
+          <FunctionImportMapping FunctionImportName="sp_CrearCuenta" FunctionName="PruebaLauraRoaModel.Store.sp_CrearCuenta" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_CrearCuenta_Result">
+                <ScalarProperty Name="nota" ColumnName="nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_CrearTransaccion" FunctionName="PruebaLauraRoaModel.Store.sp_CrearTransaccion" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_CrearTransaccion_Result">
+                <ScalarProperty Name="nota" ColumnName="nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ObtenerClientes" FunctionName="PruebaLauraRoaModel.Store.sp_ObtenerClientes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_ObtenerClientes_Result">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idTipoIdentificacion" ColumnName="idTipoIdentificacion" />
+                <ScalarProperty Name="numeroIdentificacion" ColumnName="numeroIdentificacion" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="tipoIdentificacion" ColumnName="tipoIdentificacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ObtenerCuentas" FunctionName="PruebaLauraRoaModel.Store.sp_ObtenerCuentas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_ObtenerCuentas_Result">
+                <ScalarProperty Name="idCuenta" ColumnName="idCuenta" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

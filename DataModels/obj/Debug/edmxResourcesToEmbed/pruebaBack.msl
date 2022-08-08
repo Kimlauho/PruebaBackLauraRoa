@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PruebaLauraRoaModelStoreContainer" CdmEntityContainer="PruebaLauraRoaEntities">
+    <FunctionImportMapping FunctionImportName="sp_CrearCuenta" FunctionName="PruebaLauraRoaModel.Store.sp_CrearCuenta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_CrearCuenta_Result">
+          <ScalarProperty Name="nota" ColumnName="nota" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_CrearTransaccion" FunctionName="PruebaLauraRoaModel.Store.sp_CrearTransaccion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_CrearTransaccion_Result">
+          <ScalarProperty Name="nota" ColumnName="nota" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ObtenerClientes" FunctionName="PruebaLauraRoaModel.Store.sp_ObtenerClientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_ObtenerClientes_Result">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idTipoIdentificacion" ColumnName="idTipoIdentificacion" />
+          <ScalarProperty Name="numeroIdentificacion" ColumnName="numeroIdentificacion" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="tipoIdentificacion" ColumnName="tipoIdentificacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ObtenerCuentas" FunctionName="PruebaLauraRoaModel.Store.sp_ObtenerCuentas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PruebaLauraRoaModel.sp_ObtenerCuentas_Result">
+          <ScalarProperty Name="idCuenta" ColumnName="idCuenta" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="numeroCuenta" ColumnName="numeroCuenta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

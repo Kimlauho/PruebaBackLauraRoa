@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaLauraRoaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PruebaLauraRoaEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_CrearCuenta" ReturnType="Collection(PruebaLauraRoaModel.sp_CrearCuenta_Result)">
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="numeroCuenta" Mode="In" Type="String" />
+      <Parameter Name="saldo" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CrearTransaccion" ReturnType="Collection(PruebaLauraRoaModel.sp_CrearTransaccion_Result)">
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="idCuenta" Mode="In" Type="Int32" />
+      <Parameter Name="valor" Mode="In" Type="Decimal" />
+      <Parameter Name="idTipoTransaccion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ObtenerClientes" ReturnType="Collection(PruebaLauraRoaModel.sp_ObtenerClientes_Result)" />
+    <FunctionImport Name="sp_ObtenerCuentas" ReturnType="Collection(PruebaLauraRoaModel.sp_ObtenerCuentas_Result)">
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_ObtenerClientes_Result">
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="Int32" Name="idTipoIdentificacion" Nullable="false" />
+    <Property Type="String" Name="numeroIdentificacion" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="nombres" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="apellidos" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="razonSocial" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="telefono" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="departamento" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="tipoIdentificacion" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_ObtenerCuentas_Result">
+    <Property Type="Int32" Name="idCuenta" Nullable="false" />
+    <Property Type="Decimal" Name="saldo" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="numeroCuenta" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="sp_CrearCuenta_Result">
+    <Property Type="String" Name="nota" Nullable="true" MaxLength="561" />
+  </ComplexType>
+  <ComplexType Name="sp_CrearTransaccion_Result">
+    <Property Type="String" Name="nota" Nullable="false" MaxLength="34" />
+  </ComplexType>
+</Schema>

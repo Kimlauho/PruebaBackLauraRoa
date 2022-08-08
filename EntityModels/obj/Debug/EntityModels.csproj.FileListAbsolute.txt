@@ -1,0 +1,12 @@
+D:\Laura\Finanzauto\PruebaBackLauraRoa\EntityModels\bin\Debug\EntityModels.dll
+D:\Laura\Finanzauto\PruebaBackLauraRoa\EntityModels\bin\Debug\EntityModels.pdb
+D:\Laura\Finanzauto\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.csproj.CoreCompileInputs.cache
+D:\Laura\Finanzauto\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.dll
+D:\Laura\Finanzauto\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.pdb
+D:\Laura\PruebaBackLauraRoa\EntityModels\bin\Debug\EntityModels.dll
+D:\Laura\PruebaBackLauraRoa\EntityModels\bin\Debug\EntityModels.pdb
+D:\Laura\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.csprojAssemblyReference.cache
+D:\Laura\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.csproj.CoreCompileInputs.cache
+D:\Laura\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.dll
+D:\Laura\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.pdb
+D:\Laura\Finanzauto\PruebaBackLauraRoa\EntityModels\obj\Debug\EntityModels.csproj.AssemblyReference.cache
