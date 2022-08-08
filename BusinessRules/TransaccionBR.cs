@@ -1,4 +1,5 @@
-﻿using EntityModels;
+﻿using DataModels.DataManagers;
+using EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace BusinessRules
     {
         public static TransaccionModel CrearTransaccion(TransaccionModel transaccion)
         {
-            return TransaccionBR.CrearTransaccion(transaccion);
+            return TransaccionManager.CrearTransaccion(transaccion);
         }
     }
 }
